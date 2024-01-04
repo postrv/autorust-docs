@@ -9,17 +9,17 @@ Laurence Avent
 Thursday 4 Jan 2024
 
 ## Abstract
-A Rust-Based AI Agent orchestration platform is proposed. The core system will comprise a configurable set of agents, a registry, and a manager. 
+A Rust-Based AI Agent orchestration platform is proposed. The core system will comprise a configurable set of Agents, a registry, and a manager. 
 
 Rust offers fearless concurrency, memory safety, and speed, making it an ideal language for this kind of project.
 
 The system will be deployed on Kubernetes and be able to scale up and down according to the user's requirements.
 
-The MVP will be able to orchestrate a set of agents to perform a simple task, such as reading a sketch of a proposed system and turning it into specs/pseudocode, then into code, which can be checked and run by other agents.
+The MVP will be able to orchestrate a set of Agents to perform a simple task, such as reading a sketch of a proposed system and turning it into specs/pseudocode, then into code, which can be checked and run by other Agents.
 
 The full implementation should unlock RAG, fine-tuning, and other advanced features of the OpenAI API.
 
-We anticipate that individual developers (e.g. those already in the TuringPi Community) and businesses will find great utility in locally hosted AI agents so that they can keep their data private and avoid the costs of cloud-based AI agents. 
+We anticipate that individual developers (e.g. those already in the TuringPi Community) and businesses will find great utility in locally hosted AI Agents so that they can keep their data private and avoid the costs of cloud-based AI Agents. 
 
 This system is therefore designed such that it can be relatively trivially adopted in an on-prem/edge environment.
 
@@ -59,10 +59,9 @@ The following considerations have been taken into account in the design of this 
 10. [Performance Considerations](#performance-considerations)
 11. [Scalability and Reliability](#scalability-and-reliability)
 12. [Risks and Mitigations](#risks-and-mitigations)
-13. [Alternatives Considered](#alternatives-considered)
-14. [Future Work](#future-work)
-15. [Appendices](#appendices)
-16. [Approval and Feedback](#approval-and-feedback)
+13. [Future Work](#future-work)
+14. [Appendices](#appendices)
+15. [Approval and Feedback](#approval-and-feedback)
 
 ## Introduction
 
@@ -72,7 +71,7 @@ See: [Autogen](https://github.com/microsoft/autogen)
 
 This allows for orchestration, but is limited to Python and the OpenAI API. It is also not designed for on-prem/edge deployment. 
 
-We therefore see the need for a Rust-based AI Agent Platform that can be deployed on-prem/edge and can be used to orchestrate a variety of agents, including those that are not based on the OpenAI API.
+We therefore see the need for a Rust-based AI Agent Platform that can be deployed on-prem/edge and can be used to orchestrate a variety of Agents, including those that are not based on the OpenAI API.
 
 ## Stakeholders
 - Laurence Avent
@@ -86,11 +85,11 @@ We therefore see the need for a Rust-based AI Agent Platform that can be deploye
 ## Goals and Non-Goals
 
 ### Goals
-- Create a Rust-based AI Agent Platform that can be used to create AI agents for a variety of purposes.
-- Enable users to define custom workflows and hierarchies for AI agents
+- Create a Rust-based AI Agent Platform that can be used to create AI Agents for a variety of purposes.
+- Enable users to define custom workflows and hierarchies for AI Agents
 - Expand the TuringPi ecosystem
 - We want to remain reactive to the rapidly shifting AI landscape. 
-- We will use the OpenAI API and other existing AI agents for now but will be able to swap these out as the landscape changes.
+- We will use the OpenAI API and other existing AI Agents for now but will be able to swap these out as the landscape changes.
 
 ### Non-Goals
 - We are not trying to reinvent the wheel. We will use existing libraries and frameworks where possible.
@@ -99,11 +98,11 @@ We therefore see the need for a Rust-based AI Agent Platform that can be deploye
 ## Architectural Overview
 
 The proposed system consists of the following components:
-- Agent Manager: Manages the agents and the agent registry.
-- Agent Registry: Maintains a list of agents, their IDs, and functions.
+- Agent Manager: Manages the Agents and the Agent registry.
+- Agent Registry: Maintains a list of Agents, their IDs, and functions.
 - Agents for specific roles: e.g. GPT Vision, Coding Agent, Code Interpreter, Code Checker (see example).
-  - Each agent has its own message queue and can be configured to run on a separate thread or process.
-  - Each agent can be configured to run on a separate machine or cluster depending on its requirements.
+  - Each Agent has its own message queue and can be configured to run on a separate thread or process.
+  - They can also be configured to run on a separate machine or cluster depending on their requirements.
 - Message Handling: JSON and image data communication, in line with the OpenAI API.
 - OpenAI API Communication: External system interaction using the OpenAI API and authentication token.
 - Error Handling and Regeneration: Manages errors from the OpenAI API and coding errors.
@@ -118,27 +117,35 @@ The following diagram illustrates a more comprehensive example configuration:
 
 ![Architecture Diagram - Detailed](../images/async-advanced.png "Detailed Architecture Diagram with example agent configuration")
 
-In this example, there are 4 agents arranged such that:
-- One can read a sketch of a proposed system and turn it into specs/pseudocode (GPT Vision Agent)
-- One can turn the specs/pseudocode into code (Coding Agent)
-- One can run the code and return the results (Code Interpreter Agent)
-- One can check the output for errors (Code Checker Agent)
+In this example, there are 4 x Agents arranged as follows:
+1. GPT Vision Agent - can read a sketch of a proposed system and turn it into specs/pseudocode (GPT Vision Agent)
+2. Coding Agent - can turn the specs/pseudocode into code
+3. Code Interpreter Agent - can run the code and return the results
+4. Code Checker Agent - can check the output for errors
 
-The user should be able to specify the number of agents for each role, the hierarchy and the order of operations, and the system should be able to scale up and down accordingly.
+We can therefore think of them as performing the following respective duties:
+1. Product Manager
+2. Developer
+3. DevOps
+4. QA
+
+The user should be able to specify the number of Agents for each role, the hierarchy and the order of operations.
 
 This system is designed such that it can be relatively trivially adopted in an on-prem/edge environment and will run on K8's or K3's. 
 
-Taking advantage of Rust's fearless concurrency, we will be able to scale up and down according to the user's requirements and system resources.
+Taking advantage of Rust's fearless concurrency, we will get the best possible results out of a limited compute environment.
 
 ## Detailed Design
 
 ### User Journeys for inclusion in the UI
 
 The following user journeys have been identified:
-- User wants to create one or more Agents
-- User wants to define a workflow for one or more Agents
-- User wants to run an agent or workflow
-- User wants to stop an agent or workflow
+- User wants to: 
+  - Create one or more Agents 
+  - Define a workflow for one or more Agents 
+  - Run an Agent or workflow 
+  - Stop an Agent or workflow
+
 - User wants to view the status of:
   - One or more Agent 
   - The system 
@@ -155,28 +162,30 @@ Though not in the scope of this proposal, we should consider how best to impleme
 
 #### Agent Manager
 
-The Agent Manager will be responsible for managing the agents and the agent registry.
+The Agent Manager will be responsible for managing the Agents and the Agent registry.
 
 The Agent Manager will be responsible for:
-- Starting and stopping agents
-- Managing the agent registry
+- Starting and stopping Agents
+- Managing the Agent registry
 - Managing the message queue
 - Managing the OpenAI API (or other API if integrating with other AI providers)
 
 
 #### Agent Registry
 
-The Agent Registry will be responsible for maintaining a list of agents, their IDs, and functions.
+The Agent Registry will be responsible for maintaining a list of Agents, their IDs, and functions.
 
 
 #### Agents for specific roles
 
-Agents will be responsible for performing specific roles, such as:
+As discussed in [#Architectural Overview](#architectural-overview) above, Agents will be responsible for performing specific roles, such as:
 - GPT Vision
 - Coding Agent
 - Code Interpreter
 - Code Checker
-- Assistants API/GPT's for pre-specialised agents
+
+Others might include: 
+- Assistants API/GPT's for pre-specialised Agents
 - [Future] RAG
 - [Future] Fine-tuning
 - [Future] Other AI providers
@@ -262,7 +271,7 @@ impl GPTVisionAgent {
   - `GPT-4`
   - `GPT-Vision`
   - `Code Interpreter`
-  - `Assistants API/GPT's` for pre-specialised agents
+  - `Assistants API/GPT's` for pre-specialised Agents
 
 - Web UI [TBC] options include:
   - JavaScript/TypeScript React App or similar
@@ -274,8 +283,8 @@ impl GPTVisionAgent {
 - [Optional] Storage:
 - PostGres DB hosted in AWS RDS or similar could be used for our own Cloud-based storage solution if we deem it necessary. Alternatively, we could rely on the user's existing storage solution.
 - A PostGres DB hosted in a Docker container or similar could work well for a user's edge/local compute purposes. Alternatively, we could rely on the user's existing storage solution.
-- A lightweight storage solution could be used for the agent registry, such as Redis or similar.
-- SQLite could be used for the agent registry in an on-prem/edge environment.
+- A lightweight storage solution could be used for the Agent registry, such as Redis or similar.
+- SQLite could be used for the Agent registry in an on-prem/edge environment.
 
 ## Security Considerations
 
@@ -291,7 +300,7 @@ We should have an onboarding workflow that enables users to set up their own pri
 
 Private data should not be stored in our application or on our servers; in the case of images, these should be temporarily rendered from the user's storage solution via ephemeral signed urls.
 
-We should use a sandboxed Docker container to isolate ourselves and the customer from the effects of potentially malicious arbitrary code execution. 
+We should use a sand-boxed Docker container to isolate ourselves and the customer from the effects of potentially malicious arbitrary code execution. 
 [Shuttle.rs](https://shuttle.rs) solve this problem in a similar way for their hosting solution, also built in Rust.
 
 We should use a standard authentication and authorization solution, such as OAuth2.0, to ensure that only authorized users can access the system and the data and functions that they are authorized to access.
@@ -308,12 +317,12 @@ Bruce Lee once said: "It is daily decrease, not daily increase, that makes the m
 
 So too with code, we should seek to keep our code as lightweight and performant as possible, erring on the side of edge-first computing.
 
-To that end, we propose the following performance considerations:
-- We should take an edge-first approach, meaning the core system should be lightweight and performant enough to run on a TuringPi 7 x Raspberry Pi cluster board.
-- We should use Rust, which is fast and memory efficient.
-- We should use asynchronous programming, which is fast and memory efficient and in particular make use of `lazy_static` for efficient state management.
-- We should use K3's, which is fast and memory efficient.
-- We should have a configurable concurrency level that is appropriate for the user's requirements and system resources but can be overridden by power users operating in their own environments.
+To that end, we propose the following performance considerations. We should:
+- Take an edge-first approach, meaning the core system should be lightweight and performant enough to run on a TuringPi 7 x Raspberry Pi cluster board.
+- Use Rust, which is the most powerful programming language for the task (drawing from Richard W. Hamming's "You and Your Research" talk).
+- Use asynchronous programming, which is fast and memory efficient and in particular make use of `lazy_static` for efficient state management.
+- Use K3's, which is a lightweight Kubernetes distribution designed for edge computing.
+- Have a configurable concurrency level that is appropriate for the user's requirements and system resources but can be overridden by power users operating in their own environments.
 
 ## Scalability and Reliability
 
@@ -333,13 +342,6 @@ Dealing with each in turn we propose:
 - Ensuring we can swap out the API with relative ease both for local and cloud deployments.
 - Ensuring that we use a sand-boxed Docker container to isolate ourselves and the customer from the effects of potentially malicious arbitrary code execution both locally and in the cloud.
 - Utilising our strong Developer Community to ensure we stay abreast of the latest developments in the AI LLM space and can react accordingly.
-
-## Alternatives Considered
-
-A synchronous approach was considered, but this would not take advantage of Rust's concurrency features and would therefore be slower and less memory efficient.
-
-A Python-based solution was considered, but this would not take advantage of Rust's speed and memory efficiency and would therefore be slower and less memory efficient.
-
 
 ## Future Work
 
