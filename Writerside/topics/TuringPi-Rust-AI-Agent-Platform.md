@@ -57,7 +57,7 @@ The following considerations have been taken into account in the design of this 
 8. [Technology Stack](#technology-stack)
 9. [Security Considerations](#security-considerations)
 10. [Performance Considerations](#performance-considerations)
-11. [Scalability and Reliability](#scalability-and-reliability)
+11. [Scalability, Reliability and Testing](#scalability-reliability-and-testing)
 12. [Risks and Mitigations](#risks-and-mitigations)
 13. [Future Work](#future-work)
 14. [Appendices](#appendices)
@@ -326,7 +326,7 @@ To that end, we propose the following performance considerations. We should:
 - Use K3's, which is a lightweight Kubernetes distribution designed for edge computing.
 - Have a configurable concurrency level that is appropriate for the user's requirements and system resources but can be overridden by power users operating in their own environments.
 
-## Scalability and Reliability
+## Scalability, Reliability and Testing
 
 - We should use Kubernetes, which is designed for scalability and reliability.
 - Autoscaling should be enabled.
