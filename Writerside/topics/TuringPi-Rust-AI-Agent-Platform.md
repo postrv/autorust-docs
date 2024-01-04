@@ -58,12 +58,11 @@ The following considerations have been taken into account in the design of this 
 9. [Security Considerations](#security-considerations)
 10. [Performance Considerations](#performance-considerations)
 11. [Scalability and Reliability](#scalability-and-reliability)
-12. [Cost Analysis](#cost-analysis)
-13. [Risks and Mitigations](#risks-and-mitigations)
-14. [Alternatives Considered](#alternatives-considered)
-15. [Future Work](#future-work)
-16. [Appendices](#appendices)
-17. [Approval and Feedback](#approval-and-feedback)
+12. [Risks and Mitigations](#risks-and-mitigations)
+13. [Alternatives Considered](#alternatives-considered)
+14. [Future Work](#future-work)
+15. [Appendices](#appendices)
+16. [Approval and Feedback](#approval-and-feedback)
 
 ## Introduction
 
@@ -112,12 +111,12 @@ The proposed system consists of the following components:
 
 The following diagram illustrates the proposed generic high-level architecture:
 
-[![Architecture Diagram](async.png "High Level Architecture Diagram")](../images/async.png)
+![Architecture Diagram](async.png "High Level Architecture Diagram")
 
 
 The following diagram illustrates a more comprehensive example configuration:
 
-[![Architecture Diagram - Detailed](async-advanced.png "Detailed Architecture Diagram with example agent configuration")](../images/async-advanced.png)
+![Architecture Diagram - Detailed](async-advanced.png "Detailed Architecture Diagram with example agent configuration")
 
 In this example, there are 4 agents arranged such that:
 - One can read a sketch of a proposed system and turn it into specs/pseudocode (GPT Vision Agent)
@@ -321,13 +320,6 @@ To that end, we propose the following performance considerations:
 - We should use Kubernetes, which is designed for scalability and reliability.
 - Autoscaling should be enabled.
 - Appropriate performance and health checks should be implemented.
-
-## Cost Analysis
-
-- We should use K3's, which is free and open-source.
-- We should use Rust, which is free and open-source.
-- We should use Kubernetes, which is free and open-source.
-- We should perform a cost analysis of the OpenAI API and other AI providers and consider how best to optimise the system for cost.
 
 ## Risks and Mitigations
 
