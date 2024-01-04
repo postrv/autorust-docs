@@ -335,6 +335,8 @@ To that end, we propose the following performance considerations. We should:
 - We should use Kubernetes, which is designed for scalability and reliability.
 - Autoscaling should be enabled.
 - Appropriate performance and health checks should be implemented.
+- Unit and integration tests should be implemented and run as part of the CI/CD pipeline to ensure that the system is reliable. Tests should include a representative spread of data and contexts. 
+- N.B. When testing, we should always test the functionality not the implementation, such that a later refactoring does not significantly mutate the expected behaviour of the existing tests.
 
 ## Risks and Mitigations
 
