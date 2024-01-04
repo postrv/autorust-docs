@@ -19,7 +19,7 @@ The MVP will be able to orchestrate a set of Agents to perform a simple task, su
 
 The full implementation should unlock RAG, fine-tuning, and other advanced features of the OpenAI API.
 
-We anticipate that individual developers (e.g. those already in the TuringPi Community) and businesses will find great utility in locally hosted AI Agents so that they can keep their data private and avoid the costs of cloud-based AI Agents. 
+We anticipate that individual developers (e.g. those already in the TuringPi Community) and businesses will find great utility in locally hosted AI Agents so that they can keep their data private and avoid the costs and privacy concerns of cloud-based AI Agents. 
 
 This system is therefore designed such that it can be relatively trivially adopted in an on-prem/edge environment.
 
