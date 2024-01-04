@@ -325,7 +325,7 @@ So too with code, we should seek to keep our code as lightweight and performant 
 
 To that end, we propose the following performance considerations. We should:
 - Take an edge-first approach, meaning the core system should be lightweight and performant enough to run on a TuringPi 7 x Raspberry Pi cluster board.
-- Use Rust, which is the most powerful programming language for the task (drawing from Richard W. Hamming's "You and Your Research" talk).
+- Use Rust, which is the **most powerful programming language for the task** (drawing from Richard W. Hamming's "You and Your Research" talk).
 - Use asynchronous programming, which is fast and memory efficient and in particular make use of `lazy_static` for efficient state management.
 - Use K3's, which is a lightweight Kubernetes distribution designed for edge computing.
 - Have a configurable concurrency level that is appropriate for the user's requirements and system resources but can be overridden by power users operating in their own environments.
