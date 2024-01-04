@@ -71,7 +71,7 @@ See: [Autogen](https://github.com/microsoft/autogen)
 
 This allows for orchestration, but is limited to Python and the OpenAI API. It is also not designed for on-prem/edge deployment. 
 
-We therefore see the need for a Rust-based AI Agent Platform that can be deployed on-prem/edge and can be used to orchestrate a variety of Agents, including those that are not based on the OpenAI API.
+We therefore see the need for a Rust-based AI Agent Platform that can be deployed on-prem/at the edge and can be used to orchestrate a variety of Agents, including those that are not based on the OpenAI API.
 
 ## Stakeholders
 - Laurence Avent
@@ -80,7 +80,7 @@ We therefore see the need for a Rust-based AI Agent Platform that can be deploye
 - TuringPi Investors
 - Rust Community
 - Raspberry Pi Community
-- LLM Enjoyers the World Over
+- LLM Enjoyers the World Over...
 
 ## Goals and Non-Goals
 
@@ -111,7 +111,6 @@ The proposed system consists of the following components:
 The following diagram illustrates the proposed generic high-level architecture:
 
 ![Architecture Diagram](../images/async.png "High Level Architecture Diagram")
-
 
 The following diagram illustrates a more comprehensive example configuration:
 
@@ -170,11 +169,9 @@ The Agent Manager will be responsible for:
 - Managing the message queue
 - Managing the OpenAI API (or other API if integrating with other AI providers)
 
-
 #### Agent Registry
 
 The Agent Registry will be responsible for maintaining a list of Agents, their IDs, and functions.
-
 
 #### Agents for specific roles
 
@@ -205,7 +202,6 @@ The system will be able to handle errors from the OpenAI API and coding errors.
 #### Logging and Monitoring
 
 The system will implement logging and monitoring with common Rust libraries.
-
 
 ### MVP/Proof of Concept
 An MVP framework for the system has been developed and is available here: [TuringPi-Rust-AI-Agent-Platform](https://github.com/postrv/autorust)
