@@ -277,8 +277,8 @@ impl GPTVisionAgent {
 - Sand-boxed Docker Container akin to that which Shuttle.rs use. (For evaluation/MVP purposes we can use Google Cloud Functions).
 
 - [Optional] Storage:
-  - PostGres DB hosted in AWS RDS or similar could be used for our own Cloud-based storage solution if we deem it necessary. Alternatively, we could rely on the user's existing storage solution.
-  - A PostGres DB hosted in a Docker container or similar could work well for a user's edge/local compute purposes. Alternatively, we could rely on the user's existing storage solution.
+  - PostGres DB hosted in AWS RDS or similar could be used for our own Cloud-based storage solution if we deem it necessary.
+  - A PostGres DB hosted in a Docker container or similar could work well for a user's edge/local compute purposes.
   - A lightweight storage solution could be used for the Agent registry, such as Redis or similar.
   - SQLite could be used for the Agent registry in an on-prem/edge environment.
 
