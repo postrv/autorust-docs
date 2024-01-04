@@ -296,19 +296,25 @@ The primary considerations on the security front are:
 - Encryption - we need to ensure that data is encrypted in transit and at rest.
 - Logging - we need to ensure that logs are secure and only accessible to authorized users. They should also be appropriately stored for audit purposes.
 
+### Proposed Solutions
+
+#### Private Data
 We should have an onboarding workflow that enables users to set up their own private cloud or on-prem/edge deployment.
 
 Private data should not be stored in our application or on our servers; in the case of images, these should be temporarily rendered from the user's storage solution via ephemeral signed urls.
 
+#### Arbitrary Code Execution
 We should use a sand-boxed Docker container to isolate ourselves and the customer from the effects of potentially malicious arbitrary code execution. 
 [Shuttle.rs](https://shuttle.rs) solve this problem in a similar way for their hosting solution, also built in Rust.
 
+#### Authentication, Authorization, and Encryption
 We should use a standard authentication and authorization solution, such as OAuth2.0, to ensure that only authorized users can access the system and the data and functions that they are authorized to access.
 
 We should use standard encryption solutions:
 - HTTPS over TLS v1.3, to ensure that data is encrypted in transit. Assuming we are using a WAF for our cloud platform, termination should take place at the load balancer level.
 - AES-256 for storage at rest (taking care not to store anything unless it is strictly necessary). Key management can be handled by the user's existing storage solution, or AWS KMS, or similar if we implement a cloud storage solution ourselves.
 
+#### Logging
 We should use standard logging solutions, such as `log` and `env_logger`, to ensure that logs are secure and only accessible to authorized users. They should also be appropriately stored for audit purposes. (This is out of the current scope of this proposal).
 
 ## Performance Considerations
