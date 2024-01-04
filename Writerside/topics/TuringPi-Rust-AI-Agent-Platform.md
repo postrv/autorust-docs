@@ -118,6 +118,7 @@ The following diagram illustrates the proposed generic high-level architecture:
 The following diagram illustrates a more comprehensive example configuration:
 
 [![Architecture Diagram - Detailed](async-advanced.png "Detailed Architecture Diagram with example agent configuration")](../images/async-advanced.png)
+
 In this example, there are 4 agents arranged such that:
 - One can read a sketch of a proposed system and turn it into specs/pseudocode (GPT Vision Agent)
 - One can turn the specs/pseudocode into code (Coding Agent)
