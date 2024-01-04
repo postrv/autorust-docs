@@ -152,7 +152,9 @@ The UI should allow the user to perform the above actions unsupervised and in an
 
 Though not in the scope of this proposal, we should consider how best to implement a natural language orchestration/setup interface for onboarding customers and for customizing workflows.
 
-### Agent Manager
+### Components
+
+#### Agent Manager
 
 The Agent Manager will be responsible for managing the agents and the agent registry.
 
@@ -163,12 +165,12 @@ The Agent Manager will be responsible for:
 - Managing the OpenAI API (or other API if integrating with other AI providers)
 
 
-### Agent Registry
+#### Agent Registry
 
 The Agent Registry will be responsible for maintaining a list of agents, their IDs, and functions.
 
 
-### Agents for specific roles
+#### Agents for specific roles
 
 Agents will be responsible for performing specific roles, such as:
 - GPT Vision
@@ -180,19 +182,19 @@ Agents will be responsible for performing specific roles, such as:
 - [Future] Fine-tuning
 - [Future] Other AI providers
 
-### Message Handling
+#### Message Handling
 
 The system will use JSON for message handling, in line with the OpenAI API. It will be able to handle multimodal (text and image) data in messages.
 
-### OpenAI API Communication
+#### OpenAI API Communication
 
 The system will communicate with the OpenAI API (or other API if integrating with other AI providers) using an authentication token.
 
-### Error Handling and Regeneration
+#### Error Handling and Regeneration
 
 The system will be able to handle errors from the OpenAI API and coding errors.
 
-### Logging and Monitoring
+#### Logging and Monitoring
 
 The system will implement logging and monitoring with common Rust libraries.
 
@@ -200,7 +202,7 @@ The system will implement logging and monitoring with common Rust libraries.
 ### MVP/Proof of Concept
 An MVP framework for the system has been developed and is available here: [TuringPi-Rust-AI-Agent-Platform](https://github.com/postrv/autorust)
 
-### Learning Points
+#### Learning Points
 The MVP exercise has highlighted the following learning points:
 - Rust is a great language for this kind of project. It is fast, safe, and has great concurrency features.
 - The system must be able to handle errors from the OpenAI API and coding errors.
@@ -325,7 +327,7 @@ To that end, we propose the following performance considerations:
 - We should use K3's, which is free and open-source.
 - We should use Rust, which is free and open-source.
 - We should use Kubernetes, which is free and open-source.
-- We should perform a cost analysis of the OpenAI API and other AI providers and consider how best to pass these costs on to the user.
+- We should perform a cost analysis of the OpenAI API and other AI providers and consider how best to optimise the system for cost.
 
 ## Risks and Mitigations
 
@@ -369,3 +371,5 @@ The MVP code can be found here [TuringPi-Rust-AI-Agent-Platform](https://github.
 
 ### Feedback:
 - Please provide feedback and comments on this proposal by creating an issue in this repo by Friday 12 January 2024.
+
+Thanks for reading!
