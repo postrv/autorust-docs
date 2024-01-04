@@ -69,9 +69,10 @@ The following considerations have been taken into account in the design of this 
 ## Introduction
 
 Microsoft have open-sourced their AI Agent framework, which is written in Python. 
+
 See:[Autogen](https://github.com/microsoft/autogen)
-This allows for orchestration, but is limited to Python and the OpenAI API.
-It is also not designed for on-prem/edge deployment. 
+
+This allows for orchestration, but is limited to Python and the OpenAI API. It is also not designed for on-prem/edge deployment. 
 
 We therefore see the need for a Rust-based AI Agent Platform that can be deployed on-prem/edge and can be used to orchestrate a variety of agents, including those that are not based on the OpenAI API.
 
