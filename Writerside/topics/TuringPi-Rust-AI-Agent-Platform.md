@@ -63,8 +63,7 @@ The following considerations have been taken into account in the design of this 
 14. [Alternatives Considered](#alternatives-considered)
 15. [Future Work](#future-work)
 16. [Appendices](#appendices)
-17. [References](#references)
-18. [Approval and Feedback](#approval-and-feedback)
+17. [Approval and Feedback](#approval-and-feedback)
 
 ## Introduction
 
