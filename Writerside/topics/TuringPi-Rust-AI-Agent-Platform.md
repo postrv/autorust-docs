@@ -98,7 +98,7 @@ We therefore see the need for a Rust-based AI Agent Platform that can be deploye
 ## Architectural Overview
 
 The proposed system consists of the following components:
-- Agent Manager: Manages the Agents and the Agent registry.
+- Agent Manager: Manages the Agents and the Agent registry. Has the ability to start and stop Agents and to append messages to their message queues.
 - Agent Registry: Maintains a list of Agents, their IDs, and functions.
 - Agents for specific roles: e.g. GPT Vision, Coding Agent, Code Interpreter, Code Checker (see example).
   - Each Agent has its own message queue and can be configured to run on a separate thread or process.
