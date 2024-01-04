@@ -112,11 +112,12 @@ The proposed system consists of the following components:
 
 The following diagram illustrates the proposed generic high-level architecture:
 
-[![Architecture Diagram](async.png "High Level Architecture Diagram")](../images/async.png)
+[![Architecture Diagram](async.png "High Level Architecture Diagram")](../images/async.png){width=450px, height=300px}
+
 
 The following diagram illustrates a more comprehensive example configuration:
 
-[![Architecture Diagram - Detailed](async-advanced.png "Detailed Architecture Diagram with example agent configuration")](../images/async-advanced.png)
+[![Architecture Diagram - Detailed](async-advanced.png "Detailed Architecture Diagram with example agent configuration")](../images/async-advanced.png){width=600px, height=300px}
 
 In this example, there are 4 agents arranged such that:
 - One can read a sketch of a proposed system and turn it into specs/pseudocode (GPT Vision Agent)
